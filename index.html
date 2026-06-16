@@ -5,6 +5,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Ultimate Utility Hub</h1>
+    <div class="menu">
+        <button>🧮 Calculator</button>
+        <button>🔬 Scientific</button>
+        <button>📏 Converter</button>
+        <button>📈 Graph</button>
+    
+    </div>
 
     <div class="calculator">
         <input type="text" id="display" readonly>
@@ -31,12 +39,51 @@
 
        <button onclick="clearDisplay()">C</button>
        <button onclick="calculate()">=</button>
-       <button onclick="toggleTheme()">🌙</button>
+       <select onchange="changeTheme(this.value)">
+            <option value="light">☀️ Light</option>
+            <option value="dark">🌙 Dark</option>
+            <option value="ocean">🌊 Ocean</option>
+            <option value="neon">⚡ Neon</option>
+            
+        </select>
+       
+    </div>
+    <div class="scientific-section">
+        <h2>🔬 Scientific Calculator</h2>
+
+        <button onclick="squareRoot()">√</button>
+        <button onclick="square()">x²</button>
+        <button onclick="cube()">x³</button>
+        <button onclick="addToDisplay('3.14159265359')">π</button>
+
+       <button onclick="sin()">sin</button>
+       <button onclick="cos()">cos</button>
+       <button onclick="tan()">tan</button>
+       <button onclick="log()">log</button>
     </div>
 
     <div class="history">
-       <h3>History</h3>
-       <ul id="historyList"></ul>
+        <h3>History</h3>
+
+        <button onclick="clearHistory()">🗑 Clear History</button>
+
+        <ul id="historyList"></ul>
+    </div>
+    <div class="converter">
+       <h2>📏 Unit Converter</h2>
+
+       <input type="number" id="unitInput" placeholder="Enter value">
+
+       <select id="unitType">
+            <option value="km-m">Kilometer → Meter</option>
+            <option value="m-km">Meter → Kilometer</option>
+            <option value="kg-g">Kg → Gram</option>
+            <option value="g-kg">Gram → Kg</option>
+        </select>
+
+        <button onclick="convertUnit()">Convert</button>
+
+        <p id="unitResult"></p>
     </div>
     <script src="script.js"></script>
 
